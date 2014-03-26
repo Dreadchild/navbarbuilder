@@ -7,19 +7,26 @@
     public function setup()
     {
       $this->builder = new Builder(new FakeNavCurl("hellow world"));
+      $this->spy = new CurlWrapperSpy();
     }
 
     public function testSlurp()
     {
-      $this->assertEquals($this->builder->slurp(), "hellow world");
+      $this->assertEquals("hellow world", $this->builder->slurp());
     }
 
     public function testSlupWithCurl()
     {
-      $spy = new CurlWrapperSpy();
-      $builder = new Builder($spy);
+      $builder = new Builder($this->spy);
       $builder->slurp();
-      $this->assertTrue($spy->called);
+      $this->assertTrue($this->spy->called);
+    }
+
+    public function testSlupWithCurlWithCorrectUrl()
+    {
+      $builder = new Builder($this->spy);
+      $builder->slurp("http://www.google.com");
+      $this->assertEquals("http://www.google.com", $this->spy->calledWith);
     }
   }
 
@@ -29,9 +36,11 @@
   class CurlWrapperSpy
   {
     public $called = false;
+    public $calledWith = null;
 
-    public function slurp()
+    public function slurp($url=false)
     {
+      $this->calledWith = $url;
       $this->called = true;
     }
   }
@@ -44,7 +53,7 @@
       $this->slurp_return = $slurp_return;
     }
 
-    public function slurp()
+    public function slurp($url=false)
     {
       return $this->slurp_return;
     }

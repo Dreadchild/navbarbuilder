@@ -8,9 +8,9 @@
       $this->curl = $curl ? $curl : new NavCurl();
     }
 
-    public function slurp()
+    public function slurp($url=false)
     {
-      $this->curl->slurp();
+      $this->curl->slurp($url);
       return "hellow world";
     }
   }
