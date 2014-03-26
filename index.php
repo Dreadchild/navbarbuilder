@@ -20,7 +20,7 @@
       </div>
       <div class="row">
         <div class="col-sm-8">
-          <form action="builder.php" method="POST">
+          <form action="run.php" method="POST">
             <div class="form-group">
               <label for="storefront-url">Storefront URL</label>
               <input type="text" name="storefront-url" placeholder="shop.example.com" id="storefront-url" class="form-control input-lg">
