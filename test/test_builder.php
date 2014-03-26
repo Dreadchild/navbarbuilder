@@ -12,21 +12,35 @@
 
     public function testSlurp()
     {
-      $this->assertEquals("hellow world", $this->builder->slurp());
+      $this->assertEquals("hellow world", $this->builder->slurp("something"));
     }
 
-    public function testSlupWithCurl()
+    public function testSlurpWithDifferentFakeNavCurl()
+    {
+      $this->builder = new Builder(new FakeNavCurl("bye mom"));
+      $this->assertEquals("bye mom", $this->builder->slurp("something"));
+    }
+
+    public function testSlupWithCurlWithNoUrl()
     {
       $builder = new Builder($this->spy);
-      $builder->slurp();
-      $this->assertTrue($this->spy->called);
+      $result = $builder->slurp();
+      $this->assertFalse($this->spy->called);
+      $this->assertFalse($result);
     }
 
-    public function testSlupWithCurlWithCorrectUrl()
+    public function testSlupWithCurlWithUrl()
     {
       $builder = new Builder($this->spy);
       $builder->slurp("http://www.google.com");
       $this->assertEquals("http://www.google.com", $this->spy->calledWith);
+    }
+
+    public function testSlurpWithCurlWithAnotherUrl()
+    {
+      $builder = new Builder($this->spy);
+      $builder->slurp("http://www.example.com");
+      $this->assertEquals("http://www.example.com", $this->spy->calledWith);
     }
   }
 

@@ -10,8 +10,10 @@
 
     public function slurp($url=false)
     {
-      $this->curl->slurp($url);
-      return "hellow world";
+      if (!$url) {
+        return false;
+      }
+      return $this->curl->slurp($url);
     }
   }
 ?>
