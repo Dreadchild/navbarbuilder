@@ -15,7 +15,7 @@ Install
 
 1. Download the [zip package](https://github.com/Resellers/navbarbuilder/archive/master.zip)
 2. Extract the zip file locally
-3. Upload the entire `navbarbuilder` directory to your PHP supported webhost
+3. Upload the entire `navbarbuilder-master` directory to your PHP supported webhost
 
 Usage
 -----
