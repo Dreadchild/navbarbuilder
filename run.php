@@ -28,6 +28,7 @@
         <div id="pch3">
           <?php echo $html; ?>
         </div>
+        <script type="text/javascript" src="lib/jquery.browser.min.js"></script>
         <script type="text/javascript" language="javascript" src="http://img2.wsimg.com/pc/js/6/pl_js_20130201.min.js"></script>
       </div>
     </div>
