@@ -1,7 +1,9 @@
 Navbar Builder
 ==============
+[![Build Status](https://travis-ci.org/Resellers/navbarbuilder.svg?branch=master)](https://travis-ci.org/Resellers/navbarbuilder)
 
 Build a storefront navbar from your turn-key site.
+
 
 How Can I Use This?
 -------------------
