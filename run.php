@@ -11,16 +11,16 @@
 </head>
 <body>
   <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <h2>HTML</h2>
-        <form>
-          <div class="form-group">
-            <textarea rows="20" style="font-family:monospace;" class="form-control"><?php include('lib/default.css.inc'); ?><?php echo htmlspecialchars($html); ?><?php include('lib/default.js.inc'); ?></textarea>
+    <?php if ($html == null){ ?>
+      <div class="row">
+        <div class="col-sm-12">
+        <h2>Whoops!</h2>
+          <div class="alert alert-danger">
+            <p>The storefront navigation bar could not be found at the URL you provided. <a href="index.php?storefront-url=<?php echo urlencode($_REQUEST['storefront-url'])?>">Enter a different URL.</a></p>
           </div>
-        </form>
+        </div>
       </div>
-    </div>
+    <?php }else{ ?>
     <div class="row">
       <div class="col-sm-12">
         <h2>Preview</h2>
@@ -31,6 +31,29 @@
         <?php include('lib/default.js.inc'); ?>
       </div>
     </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="well">
+          <h2>Using This Navbar</h2>
+          <ol>
+            <li>Copy the content in the HTML box below.</li>
+            <li>Paste the content into your custom HTML page.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>HTML</h2>
+        <form>
+          <div class="form-group">
+            <textarea rows="20" style="font-family:monospace;" class="form-control"><?php include('lib/default.css.inc'); ?><?php echo htmlspecialchars($html); ?><?php include('lib/default.js.inc'); ?></textarea>
+          </div>
+        </form>
+      </div>
+    </div>
+    <?php } ?>
   </div>
 </body>
 </html>

@@ -80,6 +80,12 @@
       $this->builder->build("http://shop.example.com");
       $this->assertEquals("http://shop.example.com", $spy->calledWith);
     }
+
+    public function testBuildingWhenNoNavHTMLIsFound()
+    {
+      $this->builder = new Builder(new FakeNavCurl( '<html><h1>This is Google</h1></html>'));
+      $this->assertEquals(null, $this->builder->build("http://shop.example.org"));
+    }
   }
 
   /**
