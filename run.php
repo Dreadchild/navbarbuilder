@@ -1,8 +1,6 @@
 <?php
   require('src/builder.php');
-
-  $builder = new Builder();
-  $html = $builder->slurp($_REQUEST['storefront-url']);
+  $html = (new Builder())->build($_REQUEST['storefront-url']);
 ?>
 
 <!DOCTYPE html>
@@ -14,23 +12,23 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-sm-9">
+      <div class="col-sm-12">
         <h2>HTML</h2>
         <form>
           <div class="form-group">
-            <textarea rows="10" style="font-family:monospace;" class="form-control"><?php echo htmlspecialchars($html); ?></textarea>
+            <textarea rows="20" style="font-family:monospace;" class="form-control"><?php include('lib/default.css'); ?><?php echo htmlspecialchars($html); ?><script type="text/javascript" language="javascript" src="http://img2.wsimg.com/pc/js/6/pl_js_20130201.min.js"></script></textarea>
           </div>
         </form>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-9">
-        <h2>CSS</h2>
-        <form>
-          <div class="form-group">
-            <textarea rows="10" style="font-family:monospace;" class="form-control"><?php include('lib/default.css'); ?></textarea>
-          </div>
-        </form>
+      <div class="col-sm-12">
+        <h2>Preview</h2>
+        <?php include('lib/default.css'); ?>
+        <div id="pch3">
+          <?php echo $html; ?>
+        </div>
+        <script type="text/javascript" language="javascript" src="http://img2.wsimg.com/pc/js/6/pl_js_20130201.min.js"></script>
       </div>
     </div>
   </div>
