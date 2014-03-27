@@ -1,5 +1,9 @@
 <?php
   require('src/builder.php');
+  if ($_REQUEST['storefront-url'] == null || $_REQUEST['storefront-url'] == "") {
+    header('Location: index.php');
+    die();
+  }
   $html = (new Builder())->build($_REQUEST['storefront-url']);
 ?>
 
