@@ -15,3 +15,56 @@
    */!function(a,b){"use strict";var c,d;if(a.uaMatch=function(a){a=a.toLowerCase();var b=/(opr)[\/]([\w.]+)/.exec(a)||/(chrome)[ \/]([\w.]+)/.exec(a)||/(version)[ \/]([\w.]+).*(safari)[ \/]([\w.]+)/.exec(a)||/(webkit)[ \/]([\w.]+)/.exec(a)||/(opera)(?:.*version|)[ \/]([\w.]+)/.exec(a)||/(msie) ([\w.]+)/.exec(a)||a.indexOf("trident")>=0&&/(rv)(?::| )([\w.]+)/.exec(a)||a.indexOf("compatible")<0&&/(mozilla)(?:.*? rv:([\w.]+)|)/.exec(a)||[],c=/(ipad)/.exec(a)||/(iphone)/.exec(a)||/(android)/.exec(a)||/(windows phone)/.exec(a)||/(win)/.exec(a)||/(mac)/.exec(a)||/(linux)/.exec(a)||[];return{browser:b[3]||b[1]||"",version:b[2]||"0",platform:c[0]||""}},c=a.uaMatch(b.navigator.userAgent),d={},c.browser&&(d[c.browser]=!0,d.version=c.version,d.versionNumber=parseInt(c.version)),c.platform&&(d[c.platform]=!0),(d.chrome||d.opr||d.safari)&&(d.webkit=!0),d.rv){var e="msie";c.browser=e,d[e]=!0}if(d.opr){var f="opera";c.browser=f,d[f]=!0}if(d.safari&&d.android){var g="android";c.browser=g,d[g]=!0}d.name=c.browser,d.platform=c.platform,a.browser=d}(jQuery,window);
 </script>
 <script type="text/javascript" language="javascript" src="http://img2.wsimg.com/pc/js/6/pl_js_20130201.min.js"></script>
+<script type="text/javascript">
+  var pcj_inMenuHeader = false;
+  var pcj_inMenuDrop = false;
+  $pc(document).ready(function () {
+    $pc("#pcm-navbar li").hoverIntent(
+      function (event) {
+        pcj_hideDDs("");
+        var headerId = this.id;
+        if (headerId.length > 0) {
+          var dropId = headerId + "-dropdown";
+          var hoverClass = headerId + "-hover";
+          pcj_inMenuHeader = true;
+          $pc("#" + headerId + " a").addClass(hoverClass);
+          $pc("#" + dropId).show();
+        }
+      },
+      function (event) {
+        if (!pcj_inMenuDrop) {
+          var headerId = this.id;
+          if (headerId.length > 0) {
+            var dropId = headerId + "-dropdown";
+            var hoverClass = headerId + "-hover";
+            $pc("#" + headerId + " a").removeClass(hoverClass);
+            $pc("#" + dropId).hide();
+          }
+        }
+        pcj_inMenuHeader = false;
+      });
+    $pc("#pcm-dds div.dropdowns").hover(
+      function (event) {
+        pcj_hideDDs("");
+        var dropId = this.id;
+        if (dropId.length > 0) {
+          var headerId = dropId.replace("-dropdown", "");
+          var hoverClass = headerId + "-hover";
+          pcj_inMenuDrop = true;
+          $pc("#" + headerId + " a").addClass(hoverClass);
+          $pc("#" + dropId).show();
+        }
+      },
+      function (event) {
+        var dropId = this.id;
+        if (dropId.length > 0) {
+          var headerId = dropId.replace("-dropdown", "");
+          var hoverClass = headerId + "-hover";
+          $pc("#" + headerId + " a").removeClass(hoverClass);
+          $pc("#" + dropId).hide();
+        }
+        pcj_inMenuDrop = false;
+      });
+    $pc("#pcm-dds div.dropdowns").pciframe();
+  });
+</script>

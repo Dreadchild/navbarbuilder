@@ -1,4 +1,9 @@
 <style type="text/css">
+#pch3 * {
+  -webkit-box-sizing: initial;
+  -moz-box-sizing: initial;
+  box-sizing: initial;
+}
 .pc_divlink{display:block;text-decoration:none}
 .inp_iphone{-webkit-appearance:none}
 #pch3,#pch3 span,#pch3 h3,#pch3 p,#pch3 a,#pch3 strong,#pch3 b,#pch3 ul,#pch3 li,#pch3 form{border:0;outline:0;vertical-align:baseline;background:transparent;margin:0;padding:0}
