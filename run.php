@@ -7,7 +7,7 @@
 <html>
 <head>
   <?php include_once("header.php"); ?>
-  <title>Your HTML</title>
+  <title>Your Generated Navbar Code</title>
 </head>
 <body>
   <div class="container">
