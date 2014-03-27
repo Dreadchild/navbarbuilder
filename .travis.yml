@@ -1,4 +1,4 @@
 language: php
-script: "./phpunit.phar test/test_builder.php"
+script: ./phpunit.phar test/test_builder.php
 php:
   - 5.4
