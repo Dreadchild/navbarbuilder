@@ -1,0 +1,4 @@
+language: php
+script: php phpunit.phar
+php:
+  - 5.4
