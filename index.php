@@ -1,3 +1,12 @@
+<?php
+
+  if (isset($_REQUEST['storefront-url'])) {
+    $storefront_url = htmlspecialchars($_REQUEST['storefront-url'])
+  }else{
+    $storefront_url = "";
+  }
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,7 +27,7 @@
           <form action="run.php" method="POST">
             <div class="form-group">
               <label for="storefront-url">Storefront URL</label>
-              <input type="text" value="<?php echo htmlspecialchars($_REQUEST['storefront-url']) ?>" name="storefront-url" placeholder="shop.example.com" id="storefront-url" class="form-control input-lg">
+              <input type="text" value="<?php echo $storefront_url ?>" name="storefront-url" placeholder="shop.example.com" id="storefront-url" class="form-control input-lg">
             </div>
 
             <div class="form-group">

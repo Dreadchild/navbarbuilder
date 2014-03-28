@@ -1,7 +1,7 @@
 <?php
   require('src/builder.php');
 
-  if ($_REQUEST['storefront-url'] == null || $_REQUEST['storefront-url'] == "") {
+  if (!isset($_REQUEST['storefront-url']) || $_REQUEST['storefront-url'] == "") {
     header('Location: index.php');
     die();
   }
