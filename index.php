@@ -1,7 +1,7 @@
 <?php
 
   if (isset($_REQUEST['storefront-url'])) {
-    $storefront_url = htmlspecialchars($_REQUEST['storefront-url'])
+    $storefront_url = htmlspecialchars($_REQUEST['storefront-url']);
   }else{
     $storefront_url = "";
   }
