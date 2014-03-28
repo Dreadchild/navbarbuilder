@@ -55,7 +55,7 @@
         <h2>HTML</h2>
         <form>
           <div class="form-group">
-          <textarea rows="20" style="font-family:monospace;" class="form-control"><?php include('lib/default.css.inc'); ?><div id="pch3"><?php echo htmlspecialchars($html); ?></div><?php echo htmlspecialchars(file_get_contents('inc/default.js.php')); ?></textarea>
+            <textarea rows="20" style="font-family:monospace;" class="form-control"><?php include('lib/default.css.inc'); ?><div id="pch3"><?php echo htmlspecialchars($html); ?></div><?php echo htmlspecialchars(file_get_contents('inc/default.js.php')); ?></textarea>
           </div>
         </form>
       </div>
