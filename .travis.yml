@@ -2,3 +2,5 @@ language: php
 script: ./phpunit.phar test/test_builder.php
 php:
   - 5.4
+  - 5.3
+  - 5.2
