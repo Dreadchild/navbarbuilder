@@ -2,6 +2,7 @@
 <html>
   <head>
     <?php include_once("header.php"); ?>
+    <title>Generate Your Navbar</title>
   </head>
   <body>
     <div class="container">
@@ -17,7 +18,7 @@
           <form action="run.php" method="POST">
             <div class="form-group">
               <label for="storefront-url">Storefront URL</label>
-              <input type="text" value="<?php echo $_REQUEST['storefront-url'] ?>" name="storefront-url" placeholder="shop.example.com" id="storefront-url" class="form-control input-lg">
+              <input type="text" value="<?php echo htmlspecialchars($_REQUEST['storefront-url']) ?>" name="storefront-url" placeholder="shop.example.com" id="storefront-url" class="form-control input-lg">
             </div>
 
             <div class="form-group">

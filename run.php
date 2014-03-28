@@ -1,14 +1,20 @@
 <?php
   require('src/builder.php');
+
+  if ($_REQUEST['storefront-url'] == null || $_REQUEST['storefront-url'] == "") {
+    header('Location: index.php');
+    die();
+  }
+
   $builder = new Builder();
-  $html = $builder->build($_REQUEST['storefront-url']);
+  $html    = $builder->build($_REQUEST['storefront-url']);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
   <?php include_once("header.php"); ?>
-  <title>Your HTML</title>
+  <title>Your Generated Navbar Code</title>
 </head>
 <body>
   <div class="container">

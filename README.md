@@ -1,14 +1,23 @@
 Navbar Builder
 ==============
+[![Build Status](https://travis-ci.org/Resellers/navbarbuilder.svg?branch=master)](https://travis-ci.org/Resellers/navbarbuilder)
 
 Build a storefront navbar from your turn-key site.
+
+
+How Can I Use This?
+-------------------
+
+* Create a custom landing page
+* Build custom storefront pages
+* Achieve a "Blended" look between your existing landing pages and your turn-key storefront
 
 Install
 -------
 
 1. Download the [zip package](https://github.com/Resellers/navbarbuilder/archive/master.zip)
 2. Extract the zip file locally
-3. Upload the entire `navbarbuilder` directory to your PHP supported webhost
+3. Upload the entire `navbarbuilder-master` directory to your PHP supported webhost
 
 Usage
 -----
@@ -18,3 +27,11 @@ Usage
 3. Click the "Build Navigation" button
 4. Copy the content from the box titled "HTML"
 5. Paste the content into your custom HTML page
+
+Example
+-------
+First, enter your storefront url.
+![Entering your storefront url](https://raw.githubusercontent.com/Resellers/navbarbuilder/master/example/index.png)
+
+Next, add the generated HTML markup to your HTML page.
+![Previewing your generated navbar](https://raw.githubusercontent.com/Resellers/navbarbuilder/master/example/run.png)
