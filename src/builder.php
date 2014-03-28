@@ -15,12 +15,17 @@
       return $this->extractNav($this->slurp($url));
     }
 
+    public function clean($str)
+    {
+      return str_replace("®", "&reg;", $str);
+    }
+
     public function extractNav($html='')
     {
       $html = str_get_html($html);
       $parent = $html->find('div[id=pch3_top]', 0);
       if($parent == null) { return ''; }
-      return "".$parent->children(3);
+      return $this->clean("".$parent->children(3));
     }
 
     public function slurp($url=false)

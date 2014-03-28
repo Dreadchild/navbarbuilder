@@ -57,10 +57,12 @@
       $this->assertEquals('<div><blink>Blinkilicious</blink></div>', $this->builder->extractNav($html));
     }
 
-    // public function testBuildCreatesTheCorrectHTML(){
-    //   $this->builder = new Builder(new FakeNavCurl('<html><div id="pch3_middle"><blink>Blinkilicious</blink></div></html>'));
-    //   $this->assertEquals('<div id="pch3_middle"><blink>Blinkilicious</blink></div>', $this->builder->build("http://shop.example.org"));
-    // }
+    public function testExtractNavWithDirtyHTML()
+    {
+      $this->builder = new Builder(new FakeNavCurl());
+      $html = '<html><div id="pch3_top"><div></div><div></div><div></div><div><blink>Blinkilicious®</blink></div></div></html>';
+      $this->assertEquals('<div><blink>Blinkilicious&reg;</blink></div>', $this->builder->extractNav($html));
+    }
 
     public function testBuildCreatesTheMoreCorrectHTML(){
       $this->builder = new Builder(new FakeNavCurl( '<html><div id="pch3_top"><div></div><div></div><div></div><div style="font-face: comic-sans;"><h1>Navalicious</h1></div></div></html>'));
@@ -85,6 +87,21 @@
     {
       $this->builder = new Builder(new FakeNavCurl( '<html><h1>This is Google</h1></html>'));
       $this->assertEquals(null, $this->builder->build("http://shop.example.org"));
+    }
+
+    public function testCleaningWithAnEmptyString()
+    {
+      $this->assertEquals("", $this->builder->clean(""));
+    }
+
+    public function testCleaningWithAnCleanString()
+    {
+      $this->assertEquals("clean", $this->builder->clean("clean"));
+    }
+
+    public function testCleaningWithADirtyString()
+    {
+      $this->assertEquals("clean&reg;", $this->builder->clean("clean®"));
     }
   }
 
