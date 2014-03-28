@@ -1,6 +1,7 @@
 <?php
   require('src/builder.php');
-  $html = (new Builder())->build($_REQUEST['storefront-url']);
+  $builder = new Builder();
+  $html = $builder->build($_REQUEST['storefront-url']);
 ?>
 
 <!DOCTYPE html>
